@@ -44,7 +44,7 @@ To an extent, you are free to make minor modifications to the algorithm to impro
 
 ## Implementation
 
-You will implement the following function.
+You will implement the following function in `src/join.cpp`.
 
 ```cpp
 int join(File &file,
