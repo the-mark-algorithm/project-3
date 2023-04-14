@@ -21,7 +21,7 @@ You will implement **one of three** disk-based join algorithms: block nested loo
 		- For each tuple $r$ in $R_i$:
 			- If $r.a = s.a$ then output $(r.b, s.b)$.
 
-#### Sort merge join (SMJ)
+#### Sort-merge join (SMJ)
 
 - For each block $R_i$ of $B$ pages in $R$, sort $R_i$ by $a$ and write to disk.
 - For each block $S_i$ of $B$ pages in $S$, sort $S_i$ by $a$ and write to disk.
