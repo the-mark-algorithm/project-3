@@ -95,7 +95,7 @@ We will measure the I/O cost of your implementation. Given $P_R$ pages in `R`, $
 | SMJ       | $2(P_R + P_S)$                                         | $2P_R + P_S$             |
 | HJ        | $2(P_R + P_S)$                                         | $2P_R + P_S$             |
 
-We will also measure the peak heap memory usage of your implementation. You may use only the provided buffer to read in table data, and you should aim to allocate minimal heap memory beyond the provided buffer. However, you will likely need some additional memory for data structures and bookkeeping. We will allow you to allocate an additional 1 MiB plus 1 KiB for each page in the buffer. Thus, if your peak heap memory usage is less than or equal to $2^{20} + 2^{10}B$ bytes (not including the size of the buffer), you will receive full credit for this portion. In practice, this requirement should be easily satisfied. We will provide utilities for verifying this constraint.
+We will also measure the peak heap memory usage of your implementation. You may use only the provided buffer to read in table data, and you should aim to allocate minimal heap memory beyond the provided buffer. However, you will likely need some additional memory for data structures and bookkeeping. We will allow you to allocate an additional 32 KiB plus 1 KiB for each page in the buffer. Thus, if your peak heap memory usage is less than or equal to $2^{10}(32 + B)$ bytes (not including the size of the buffer), you will receive full credit for this portion. In practice, this requirement should be easily satisfied. We will provide utilities for verifying this constraint.
 
 ## Building
 
