@@ -1,6 +1,7 @@
 #include "join.hpp"
 #include "test.hpp"
 
+#include <algorithm>
 #include <cstdint>
 #include <numeric>
 #include <random>
