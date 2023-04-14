@@ -34,9 +34,9 @@ You will implement **one of three** disk-based join algorithms: block nested loo
 - Partition $S$ using hash function $h_1$ and write partitions to disk.
 - For each partition $(R_i, S_i)$:
 	- For each tuple $r$ in $R_i$:
-		- Insert $r$ into the hash table.
+		- Insert $r$ into the hash table using hash function $h_2 \neq h_1$.
 	- For each tuple $s$ in $S_i$:
-		- Probe the hash table with $s$. If $r.a = s.a$ then output $(r.b, s.b)$.
+		- Probe the hash table with $s$ using hash function $h_2 \neq h_1$. If $r.a = s.a$ then output $(r.b, s.b)$.
 
 ### Modifications
 
@@ -48,11 +48,10 @@ You will implement the following function.
 
 ```cpp
 int join(File &file,
-				 int numPagesR,
-				 int numPagesS,
-				 char *buffer,
-				 int numFrames,
-				 JoinAlgorithm &algorithm);
+         int numPagesR,
+         int numPagesS,
+         char *buffer,
+         int numFrames);
 ```
 
 The function parameters are explained below.
@@ -62,7 +61,6 @@ The function parameters are explained below.
 - **`numPagesS`**: The number of pages in input table `S`.
 - **`buffer`**: A contiguous memory region of buffer frames.
 - **`numFrames`**: The number of frames in the buffer.
-- **`algorithm`**: Set this to the join algorithm you choose to implement.
 
 The function must return the number of tuples in the result.
 
@@ -159,7 +157,7 @@ You are expected to develop your code using good C++ style. You don't have to fo
 
 ## Leaderboard
 
-Within each join algorithm (BNLJ, SMJ, HJ), the group with the fastest submission that will receive 5 bonus points for this project. The group with the fastest overall submission (regardless of algorithm) will receive an additional 5 bonus points. Thus, you have the opportunity to earn up to 10 bonus points for this project. To be considered for the leaderboard, your implementation must be correct and satisfy the constraints on I/O cost and peak heap memory usage.
+Within each join algorithm (BNLJ, SMJ, HJ), the group with the fastest submission that will receive 5 bonus points for this project. The group with the fastest overall submission (regardless of algorithm) will receive an additional 5 bonus points. Thus, you have the opportunity to earn up to 10 bonus points for this project. To be considered for the leaderboard, your implementation must be correct and satisfy the constraints on I/O cost and peak heap memory usage. Only on-time submissions will be considered.
 
 To evaluate submissions, we will run your code repeatedly and compute the mean latency. If there are extremely close ties, we may award bonus points to multiple groups. In the performance evaluation database, `R` and `S` will have 100,000 pages each. The buffer will have 1000 frames.
 
