@@ -1,12 +1,14 @@
 #include "file.hpp"
 
+#include <cstring>
+
 File::File(const std::string &name) : numReads_(0), numWrites_(0) {
   stream_.rdbuf()->pubsetbuf(nullptr, 0);
   stream_.open(name, std::ios::binary | std::ios::in | std::ios::out |
                          std::ios::trunc);
 
   if (!stream_) {
-    throw std::runtime_error(strerror(errno));
+    throw std::runtime_error(std::strerror(errno));
   }
 }
 
