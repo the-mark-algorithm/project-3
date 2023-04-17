@@ -149,7 +149,7 @@ You may not create, move, or delete any files or directories, with the exception
 
 ### Tests
 
-Tests are located in the subdirectory `src/test`. Tests for correctness and I/O cost of your implementation can be found in `src/test/test_join.cpp`. You are free to add any additional tests to this file; however, it will be overwritten with the original when we grade your submission. Passing these tests will account for the majority of your project grade. You need not worry about `src/test/test_table.cpp`.
+Tests are located in the subdirectory `src/test`. Tests for correctness and I/O cost of your implementation can be found in `src/test/test_join.cpp`. You are free to add any additional tests to this file; however, it will be overwritten with the original when we grade your submission. Passing these tests will account for the majority of your project grade. You need not worry about `src/test/test_file.cpp`.
 
 ### Style
 
