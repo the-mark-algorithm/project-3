@@ -14,8 +14,20 @@ class File {
 public:
   explicit File(const std::string &name);
 
+  /**
+   * Read pages from a file.
+   * @param buffer Read pages into this buffer.
+   * @param pageIndex Index of the starting page.
+   * @param numPages Number of pages to read.
+   */
   void read(void *buffer, int pageIndex, int numPages = 1);
 
+  /**
+   * Write pages to a file.
+   * @param buffer Write pages from this buffer.
+   * @param pageIndex Index of the starting page.
+   * @param numPages Number of pages to write.
+   */
   void write(void *buffer, int pageIndex, int numPages = 1);
 
   [[nodiscard]] int getNumReads() const;
