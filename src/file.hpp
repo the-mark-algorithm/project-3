@@ -1,6 +1,8 @@
 #ifndef CS564_PROJECT_3_FILE_HPP
 #define CS564_PROJECT_3_FILE_HPP
 
+#include "extern/sqlite3.h"
+
 #include <cstdint>
 #include <fstream>
 #include <memory>
@@ -16,12 +18,12 @@ public:
 
   void write(void *buffer, int pageIndex, int numPages = 1);
 
-  int getNumReads() const;
+  [[nodiscard]] int getNumReads() const;
 
-  int getNumWrites() const;
+  [[nodiscard]] int getNumWrites() const;
 
 private:
-  std::fstream stream_;
+  sqlite3_file *file_;
 
   int numReads_;
   int numWrites_;
