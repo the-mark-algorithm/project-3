@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 enable_testing()
 
+add_library(sqlite src/extern/sqlite3.h src/extern/sqlite3.c)
+
 add_library(
         join
         src/join.cpp
@@ -12,6 +14,7 @@ add_library(
         src/file.cpp
         src/file.hpp
 )
+target_link_libraries(join sqlite)
 
 add_executable(test_file src/test/test_file.cpp)
 target_include_directories(test_file PRIVATE src)
