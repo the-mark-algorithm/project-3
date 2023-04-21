@@ -85,6 +85,8 @@ Any remaining pages in the file after your output table can be created as needed
 
 ### Constraints
 
+#### I/O cost
+
 We will measure the I/O cost of your implementation. Given $P_R$ pages in `R`, $P_S$ pages in `S`, and $B$ buffer frames, the number of I/Os your implementation incurs must not exceed the following limits. 
 
 | Algorithm | Maximum number of reads                                | Maximum number of writes |
@@ -93,7 +95,9 @@ We will measure the I/O cost of your implementation. Given $P_R$ pages in `R`, $
 | SMJ       | $2(P_R + P_S)$                                         | $2P_R + P_S$             |
 | HJ        | $2(P_R + P_S)$                                         | $2P_R + P_S$             |
 
-We will also measure the peak heap memory usage of your implementation. You may use only the provided buffer to read in table data, and you should aim to allocate minimal heap memory beyond the provided buffer. However, you will likely need some additional memory for data structures and bookkeeping. We will allow you to allocate an additional 32 KiB plus 1 KiB for each page in the buffer. Thus, if your peak heap memory usage is less than or equal to $2^{10}(32 + B)$ bytes (not including the size of the buffer), you will receive full credit for this portion. In practice, this requirement should be easily satisfied. We will provide utilities for verifying this constraint.
+#### Memory usage
+
+We will also measure the peak heap memory usage of your implementation. You may use only the provided buffer to read in table data, and you should aim to allocate minimal heap memory beyond the provided buffer. However, you will likely need some additional memory for data structures and bookkeeping. We will allow you to allocate an additional 32 KiB plus 1 KiB for each page in the buffer. Thus, if your peak heap memory usage is less than or equal to $2^{10}(32 + B)$ bytes (not including the size of the buffer), you will receive full credit for this portion. In practice, this requirement should be easily satisfied. Instructions for measuring peak heap memory usage are below.
 
 ## Building
 
@@ -139,6 +143,12 @@ Optionally, run the tests. Some tests will fail if you have just started the pro
 
 ```bash
 ctest .
+```
+
+To measure peak heap memory usage, run the provided script. This will only work on a Linux machine with Valgrind installed. We recommend using one of the CSL Linux machines.
+
+```bash
+./test_memory.sh
 ```
 
 ## Developing
