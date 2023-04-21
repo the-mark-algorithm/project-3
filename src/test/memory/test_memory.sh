@@ -8,11 +8,11 @@ if [ $# -eq 1 ]; then
 fi
 
 test_memory_internal() {
-  ./test_memory_setup mem.db "$1" "$2" "$3" "$seed"
-  valgrind --tool=massif --massif-out-file=massif.out ./test_memory mem.db "$1" "$2" "$4"
+  ./test_memory_setup mem.db "$1" "$2" "$4" "$seed"
+  valgrind --tool=massif --massif-out-file=massif.out ./test_memory mem.db "$1" "$2" "$3"
   usage=$(grep mem_heap_B massif.out | sed -e 's/mem_heap_B=\(.*\)/\1/' | sort -g | tail -n 1)
-  usage=$((usage - 4096 * $4))
-  max_usage=$((1024 * (32 + $4)))
+  usage=$((usage - 4096 * $3))
+  max_usage=$((1024 * (32 + $3)))
   rm -f mem.db massif.out
   echo "usage: $usage"
   echo "max_usage: $max_usage"
