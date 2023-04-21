@@ -6,6 +6,12 @@ set(CMAKE_CXX_STANDARD 17)
 enable_testing()
 
 add_library(sqlite src/extern/sqlite3.h src/extern/sqlite3.c)
+target_compile_options(
+        sqlite
+        PRIVATE
+        "-DSQLITE_THREADSAFE=0"
+        "-DSQLITE_OMIT_LOAD_EXTENSION"
+)
 
 add_library(
         join
