@@ -22,7 +22,6 @@ add_library(
 )
 target_link_libraries(join sqlite)
 
-
 add_executable(test_file src/test/test_file.cpp)
 target_include_directories(test_file PRIVATE src)
 target_link_libraries(test_file join)
@@ -33,10 +32,12 @@ target_include_directories(test_join PRIVATE src)
 target_link_libraries(test_join join)
 add_test(test_join test_join)
 
-add_executable(test_memory_generate src/test/memory/generate.cpp)
-target_include_directories(test_memory_generate PRIVATE src)
-target_link_libraries(test_memory_generate join)
+add_executable(test_memory_setup src/test/memory/test_memory_setup.cpp)
+target_include_directories(test_memory_setup PRIVATE src)
+target_link_libraries(test_memory_setup join)
 
 add_executable(test_memory src/test/memory/test_memory.cpp)
 target_include_directories(test_memory PRIVATE src)
 target_link_libraries(test_memory join)
+
+file(COPY src/test/memory/test_memory.sh DESTINATION ${CMAKE_BINARY_DIR})
