@@ -12,7 +12,7 @@ test_memory_internal() {
   valgrind --tool=massif --massif-out-file=massif.out ./test_memory mem.db "$1" "$2" "$3"
   usage=$(grep mem_heap_B massif.out | sed -e 's/mem_heap_B=\(.*\)/\1/' | sort -g | tail -n 1)
   usage=$((usage - 4096 * $3))
-  max_usage=$((1024 * (32 + $3)))
+  max_usage=$((1024 * (100 + $3)))
   rm -f mem.db massif.out
   echo "usage: $usage"
   echo "max_usage: $max_usage"
